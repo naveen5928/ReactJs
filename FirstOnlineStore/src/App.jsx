@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import "bootstrap/dist/css/bootstrap.min.css";
 import StoreFront from "./StoreFront";
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
     return (
       <>
         <StoreFront />
-        <button className="btn btn-outline" onClick={() => setLoggedIn(false)}>
+        <button className="btn btn-danger" onClick={() => setLoggedIn(false)}>
           Logout
         </button>
       </>

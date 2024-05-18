@@ -1,28 +1,32 @@
 import { useState } from "react";
+/* eslint-disable react/prop-types */
 
 export default function Product(props) {
-  console.log(props);
-  const { name, description, image } = props.details;
   const [count, setCount] = useState(0);
-  const [enable, setEnable] = useState(false);
+  console.log(props);
+  function handleIncrementClick() {
+    setCount(count + 1);
+  }
+  function handleDecrementClick() {
+    if (count > 0) {
+      setCount(count - 1);
+    }
+  }
 
-  const handleDecrementClick = () => {
-    if (count >= 0) return setCount(count - 1);
-  };
-  const handleIncrementClick = () => {
-    return setCount(count + 1);
-  };
+  if (!props.details) {
+    return null;
+  }
+
   return (
     <div className="product">
-      <img width="50" src={image} alt="" />
       <div className="product-info">
-        <h2>{name}</h2>
-        <p>{description}</p>
+        <h2>{props.details.name}</h2>
+        <p>{props.details.description}</p>
       </div>
       <div className="product-buttons">
         <button
-          disabled={count === 0}
           className="product-sub"
+          disabled={count === 0}
           onClick={handleDecrementClick}>
           -
         </button>
