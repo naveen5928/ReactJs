@@ -1,17 +1,22 @@
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import StoreFront from "./StoreFront";
-
+import StoreFront from "./Components/OnlineStore/StoreFront";
+import SearchText from "./Components/SearchComponent/SearchText";
 function App() {
   const [LoggedIn, setLoggedIn] = useState(false);
 
   if (LoggedIn) {
     return (
       <>
-        <StoreFront />
-        <button className="btn btn-danger" onClick={() => setLoggedIn(false)}>
-          Logout
-        </button>
+        <div>
+          <StoreFront />
+          <button className="btn btn-danger" onClick={() => setLoggedIn(false)}>
+            Logout
+          </button>
+        </div>
+        <div>
+          <SearchText></SearchText>
+        </div>
       </>
     );
   }

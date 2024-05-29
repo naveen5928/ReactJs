@@ -1,9 +1,11 @@
-import { useState } from "react";
 /* eslint-disable react/prop-types */
+import { useState } from "react";
 
 export default function Product(props) {
   const [count, setCount] = useState(0);
-  console.log(props);
+
+  const { details } = props;
+
   function handleIncrementClick() {
     setCount(count + 1);
   }
@@ -13,15 +15,15 @@ export default function Product(props) {
     }
   }
 
-  if (!props.details) {
+  if (!details) {
     return null;
   }
 
   return (
     <div className="product">
       <div className="product-info">
-        <h2>{props.details.name}</h2>
-        <p>{props.details.description}</p>
+        <h2>{details.name}</h2>
+        <p>{details.description}</p>
       </div>
       <div className="product-buttons">
         <button
